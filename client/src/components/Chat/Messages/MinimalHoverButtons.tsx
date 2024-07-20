@@ -10,7 +10,11 @@ type THoverButtons = {
 export default function MinimalHoverButtons({ message }: THoverButtons) {
   const localize = useLocalize();
   const [isCopied, setIsCopied] = useState(false);
-  const copyToClipboard = useCopyToClipboard({ text: message.text, content: message.content });
+  const copyToClipboard = useCopyToClipboard({
+    messageId: message.messageId,
+    text: message.text,
+    content: message.content,
+  });
 
   return (
     <div className="visible mt-0 flex justify-center gap-1 self-end text-gray-400 lg:justify-start">

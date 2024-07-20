@@ -5,8 +5,9 @@ import type { TMessage } from 'librechat-data-provider';
 
 export default function useCopyToClipboard({
   text,
+  messageId,
   content,
-}: Partial<Pick<TMessage, 'text' | 'content'>>) {
+}: Partial<Pick<TMessage, 'text' | 'content' | 'messageId'>>) {
   const copyToClipboard = useCallback(
     (setIsCopied: React.Dispatch<React.SetStateAction<boolean>>) => {
       setIsCopied(true);
@@ -20,6 +21,13 @@ export default function useCopyToClipboard({
         }, '');
       }
       copy(messageText ?? '', { format: 'text/plain' });
+
+      if (messageId) {
+        const element = document.getElementById(messageId);
+        if (window.Asc && window.Asc.plugin) {
+          window.Asc.plugin.executeMethod('PasteHtml', [element?.innerHTML]);
+        }
+      }
 
       setTimeout(() => {
         setIsCopied(false);

@@ -66,6 +66,7 @@ const DisplayMessage = ({ text, isCreatedByUser, message, showCursor }: TDisplay
   return (
     <Container message={message}>
       <div
+        id={message.messageId}
         className={cn(
           showCursor && !!text?.length ? 'result-streaming' : '',
           'markdown prose dark:prose-invert light w-full break-words',
