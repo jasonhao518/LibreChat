@@ -24,7 +24,7 @@ export default function useCopyToClipboard({
 
       if (messageId) {
         const element = document.getElementById(messageId);
-        if (window.Asc && window.Asc.plugin) {
+        if (typeof window.Asc.plugin.executeMethod === 'function') {
           window.Asc.plugin.executeMethod('PasteHtml', [element?.innerHTML]);
         }
       }
