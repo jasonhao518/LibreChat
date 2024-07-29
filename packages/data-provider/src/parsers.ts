@@ -34,6 +34,7 @@ const endpointSchemas: Record<EModelEndpoint, EndpointSchema> = {
   [EModelEndpoint.openAI]: openAISchema,
   [EModelEndpoint.azureOpenAI]: openAISchema,
   [EModelEndpoint.custom]: openAISchema,
+  [EModelEndpoint.writing]: openAISchema,
   [EModelEndpoint.google]: googleSchema,
   [EModelEndpoint.bingAI]: bingAISchema,
   [EModelEndpoint.anthropic]: anthropicSchema,
@@ -58,6 +59,7 @@ export function getEnabledEndpoints() {
     EModelEndpoint.bingAI,
     EModelEndpoint.chatGPTBrowser,
     EModelEndpoint.gptPlugins,
+    EModelEndpoint.writing,
     EModelEndpoint.anthropic,
   ];
 
@@ -276,6 +278,7 @@ const compactEndpointSchemas: Record<string, CompactEndpointSchema> = {
   [EModelEndpoint.openAI]: compactOpenAISchema,
   [EModelEndpoint.azureOpenAI]: compactOpenAISchema,
   [EModelEndpoint.custom]: compactOpenAISchema,
+  [EModelEndpoint.writing]: compactOpenAISchema,
   [EModelEndpoint.assistants]: compactAssistantSchema,
   [EModelEndpoint.azureAssistants]: compactAssistantSchema,
   [EModelEndpoint.google]: compactGoogleSchema,
