@@ -82,7 +82,7 @@ export const ImageVisionTool: FunctionTool = {
 };
 
 export const isImageVisionTool = (tool: FunctionTool | FunctionToolCall) =>
-  tool.type === 'function' && tool.function?.name === ImageVisionTool?.function?.name;
+  tool.type === 'function' && tool.function?.name === ImageVisionTool.function?.name;
 
 export const openAISettings = {
   model: {
@@ -349,6 +349,7 @@ export type TMessage = z.input<typeof tMessageSchema> & {
   files?: Partial<TFile>[];
   depth?: number;
   siblingIndex?: number;
+  replace?: boolean;
 };
 
 export const coerceNumber = z.union([z.number(), z.string()]).transform((val) => {
