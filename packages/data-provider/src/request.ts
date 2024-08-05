@@ -76,19 +76,6 @@ const processQueue = (error: AxiosError | null, token: string | null = null) => 
   failedQueue = [];
 };
 
-axios.interceptors.request.use(
-  function (config) {
-    const w = window as any;
-    // Modify the request configuration here
-    config.headers['Document-Type'] = w.parent?.parent?.documentType;
-    return config;
-  },
-  function (error) {
-    // Handle the error
-    return Promise.reject(error);
-  },
-);
-
 axios.interceptors.response.use(
   (response) => response,
   async (error) => {

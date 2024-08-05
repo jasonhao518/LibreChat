@@ -20,7 +20,6 @@ export enum EModelEndpoint {
   chatGPTBrowser = 'chatGPTBrowser',
   google = 'google',
   gptPlugins = 'gptPlugins',
-  writing = 'writing',
   anthropic = 'anthropic',
   assistants = 'assistants',
   azureAssistants = 'azureAssistants',
